@@ -54,33 +54,22 @@ request.onload = function () {
             modalContainer.setAttribute('class','modal-container');
             modal.setAttribute('class','modal');
             closeBtn.innerHTML = '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
-            closeBtn.addEventListener('click', function(event){modalContainer.style.display = 'none'})
-            modalInfo.setAttribute('class','modal-info-container');
-            modalImg.innerHTML = `<img class="modal-img" src=${user.picture.medium} alt="profile picture">`;
-            h3.setAttribute('class','modal-name cap');
-            h3.textContent = user.name.first + ' ' + user.name.last;
-            p2.setAttribute('class','modal-text');
-            p2.textContent = `${user.email}`;
-            p3.setAttribute('class','modal-text cap');
-            p3.textContent = `${user.location.city}`;
-            p4.setAttribute('class','modal-text');
-            p4.textContent = `${user.cell}`
-            p5.setAttribute('class','modal-text');
-            p5.textContent = `${user.location.street.number} ${user.location.street.name} ${user.location.city}, ${user.location.state}`
-            p6.setAttribute('class','modal-text');
-            p6.textContent = `Birthday: ${user.dob.date.substr(0,9)}`
+            closeBtn.addEventListener('click', function(event){modalContainer.style.display = 'none'});
+            modalInfo.innerHTML = `<div class="modal-info-container">
+            <img class="modal-img" src=${user.picture.medium} alt="profile picture">
+            <h3 id="name" class="modal-name cap">${user.name.first} ${user.name.last}</h3>
+            <p class="modal-text">${user.email}</p>
+            <p class="modal-text cap">${user.location.city}</p>
+            <hr>
+            <p class="modal-text">${user.cell}</p>
+            <p class="modal-text">${user.location.street.number} ${user.location.street.name} ${user.location.city}, ${user.location.state} ${user.location.postcode}</p>
+            <p class="modal-text">Birthday: ${user.dob.date.slice(5,7)}/${user.dob.date.slice(8,10)}/${user.dob.date.slice(0,4)}</p>
+            </div>`
             //APPEND MODAL ELEMENTS TO PAGE
             app.appendChild(modalContainer);
             modalContainer.appendChild(modal);
             modal.appendChild(closeBtn);
             modal.appendChild(modalInfo);
-            modalInfo.appendChild(modalImg);
-            modalInfo.appendChild(h3);
-            modalInfo.appendChild(p2);
-            modalInfo.appendChild(p3);
-            modalInfo.appendChild(p4);
-            modalInfo.appendChild(p5);
-            modalInfo.appendChild(p6);
             })
         });
     } else { //IF THE REQUEST DOESN'T WORK, DISPLAY AN ERROR MESSAGE
