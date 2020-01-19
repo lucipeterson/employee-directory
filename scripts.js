@@ -34,6 +34,7 @@ request.onload = function () {
         card.appendChild(profilePic);
         gallery.appendChild(card);
         card.appendChild(cardInfo);
+        //POP-UP WINDOW WITH MORE INFORMATION OPENS WHEN YOU CLICK A CARD
         card.addEventListener('click', function(event) {
             //CREATE MODAL ELEMENTS
             const modalContainer = document.createElement('div');
@@ -43,7 +44,10 @@ request.onload = function () {
             //SET MODAL ELEMENT ATTRIBUTES
             modalContainer.setAttribute('class','modal-container');
             modal.setAttribute('class','modal');
-            closeBtn.innerHTML = '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
+            closeBtn.setAttribute('type','button');
+            closeBtn.setAttribute('id', 'modal-close-btn');
+            closeBtn.setAttribute('class','modal-close-btn');
+            closeBtn.innerHTML = '<strong>X</strong>';
             closeBtn.addEventListener('click', function(event){modalContainer.style.display = 'none'});
             modalInfo.innerHTML = `<div class="modal-info-container">
             <img class="modal-img" src=${user.picture.medium} alt="profile picture">
@@ -58,8 +62,8 @@ request.onload = function () {
             //APPEND MODAL ELEMENTS TO PAGE
             app.appendChild(modalContainer);
             modalContainer.appendChild(modal);
-            modal.appendChild(closeBtn);
             modal.appendChild(modalInfo);
+            modal.appendChild(closeBtn);
             })
         });
     }
