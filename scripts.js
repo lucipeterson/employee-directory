@@ -43,13 +43,6 @@ request.onload = function () {
             const modal = document.createElement('div');
             const closeBtn = document.createElement('button');
             const modalInfo = document.createElement('div');
-            const modalImg = document.createElement('img');
-            const h3 = document.createElement('h3');
-            const p2 = document.createElement('p');
-            const p3 = document.createElement('p');
-            const p4 = document.createElement('p');
-            const p5 = document.createElement('p');
-            const p6 = document.createElement('p');
             //SET MODAL ELEMENT ATTRIBUTES
             modalContainer.setAttribute('class','modal-container');
             modal.setAttribute('class','modal');
@@ -72,10 +65,6 @@ request.onload = function () {
             modal.appendChild(modalInfo);
             })
         });
-    } else { //IF THE REQUEST DOESN'T WORK, DISPLAY AN ERROR MESSAGE
-    const errorMessage = document.createElement('marquee');
-    errorMessage.textContent = `It's not working`;
-    app.appendChild(errorMessage);
-  }
+    }
 }
 request.send();
