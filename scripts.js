@@ -15,28 +15,25 @@ request.onload = function () {
     console.log(data);
     if (request.status >= 0 && request.status < 400) {
         data.forEach(user => {
-        //CREATE CARD FOR EACH USER
+        //CREATE CARD FOR EACH EMPLOYEE
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
         //CREATE CONTAINER TO HOLD INFO INSIDE OF CARD
         const cardInfo = document.createElement('div');
         cardInfo.setAttribute('class','card-info-container');
-        //GET PIC FROM API
+        cardInfo.innerHTML = 
+        `<div class="card-info-container">
+        <h3 id="name" class="card-name cap">${user.name.first} ${user.name.last}</h3>
+        <p class="card-text">${user.email}</p>
+        <p class="card-text cap">${user.location.city}, ${user.location.state}</p>
+        </div>`;
+        //GET PROFILE PIC FROM API
         const profilePic = document.createElement('div');
         profilePic.innerHTML = `<img class="card-img" src=${user.picture.thumbnail} alt="profile picture"></img>`;
-        //GET FIRST AND LAST NAME FROM API
-        const h1 = document.createElement('h1');
-        h1.textContent = user.name.first + ' ' + user.name.last;
-        //GET EMAIL AND LOCATION FROM API
-        const p = document.createElement('p');
-        p.textContent = `${user.email}
-        ${user.location.city}, ${user.location.state}`;
-        //DISPLAY USER INFO ON CARD
+        //DISPLAY EMPLOYEE INFO ON CARD
         card.appendChild(profilePic);
         gallery.appendChild(card);
         card.appendChild(cardInfo);
-        cardInfo.appendChild(h1);
-        cardInfo.appendChild(p);
         card.addEventListener('click', function(event) {
             //CREATE MODAL ELEMENTS
             const modalContainer = document.createElement('div');
