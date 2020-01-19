@@ -3,10 +3,10 @@ const apiURL = "https://randomuser.me/api/?results=12";
 const request = new XMLHttpRequest();
 const gallery = document.getElementById('gallery');
 const app = document.body;
-const searchForm = document.createElement('form');
-searchForm.innerHTML = '<form action="#" method="get"><input type="search" id="search-input" class="search-input" placeholder="Search..."><input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit"></form>';
-const searchContainer = document.querySelector('.search-container');
-searchContainer.appendChild(searchForm);
+// const searchForm = document.createElement('form');
+// searchForm.innerHTML = '<form action="#" method="get"><input type="search" id="search-input" class="search-input" placeholder="Search..."><input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit"></form>';
+// const searchContainer = document.querySelector('.search-container');
+// searchContainer.appendChild(searchForm);
 
 //REQUEST DATA FROM API
 request.open('GET', apiURL, true);
